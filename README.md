@@ -7,7 +7,9 @@
 
 ## reference
 - [youtube1](https://www.youtube.com/watch?v=QX7wMf6wTSU)
-- [youtube2](https://www.youtube.com/watch?v=CX8AnwTW2Zs)
+- [youtube2](https://www.youtube.com/watch?v=xDJMZyToIag)
+- [youtube3](https://www.youtube.com/watch?v=rVVvWHT_By4)
+- [youtube4](https://www.youtube.com/watch?v=xDJMZyToIag)
 
 ## yt1
 1. ### create acc
@@ -59,3 +61,97 @@
     ![run2](screenshots/run2.png)
     - access `https://one.newrelic.com/catalog/app-directory?nerdpacks=local&account=3847570` on browser
     ![app_local](screenshots/app_local.png)
+
+## yt2
+1. ### install
+    - NRl dashboard: click `+ Add Data` > search with KW `infra` > choose `New Relic infrastructure agent`
+    ![infra_agent](screenshots/infra_agent.png)
+    ```shell
+    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-AH0SCQSNV7QQQH1WC11DJ51S6X8 NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install
+    #==> Successfully started `newrelic-infra-agent` (label: homebrew.mxcl.newrelic-infra-agent)
+    #Running agent status check attempt...
+    #Agent status check ok.
+    #✔ Installing Infrastructure Agent
+    #Installed 
+    #New Relic installation complete 
+    #--------------------
+    #Installation Summary
+    #✔  Infrastructure Agent  (installed)  
+    #View your data at the link below:
+    #⮕  https://onenr.io/0LREdy6Yrwa
+    ```
+1. ### run
+    - access `https://onenr.io/0LREdy6Yrwa` on browser
+    ![yt2_run1](screenshots/yt2_run1.png)
+    - or in another way, click `See your data` (can check log in the right panel)
+    ![yt2_run2](screenshots/yt2_run2.png)
+
+## yt3
+1. ### PRJ1: springboot-weekend-session
+    1. #### git clone PRJ1
+        ```shell
+        cd springboot-weekend-session
+        mvn clean install
+        #[INFO] ------------------------------------------------------------------------
+        #[INFO] BUILD SUCCESS
+        #[INFO] ------------------------------------------------------------------------
+        #[INFO] Total time:  12.619 s
+        #[INFO] Finished at: 2023-03-12T16:20:54+09:00
+        ```
+    1. #### create APM
+        - NRl dashboard: click `APM & Services` > click `Add data` > search with KW `java` > choose `Java`
+        ![yt3_java](screenshots/yt3_java.png)
+        ```shell
+        springboot-weekend-session$ curl -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip
+        unzip newrelic-java.zip
+        ```
+        - input PRJ name & license key and click `Download` for `newrelic.yml`
+        - license key can see here
+        ![yt3_ls](screenshots/yt3_ls.png)
+        - copy paste `newrelic.yml` DL file into `springboot-weekend-session/newrelic/newrelic.yml`
+    1. #### run
+        ```shell
+        springboot-weekend-session$ java -javaagent:/Users/do.tranquang/Documents/DoTQ/FE/gitlab/newrelic-demo/springboot-weekend-session/newrelic/newrelic.jar -jar target/springboot-weekend-session-0.0.1-SNAPSHOT.jar
+        # /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+        #( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+        #\\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+        #'  |____| .__|_| |_|_| |_\__, | / / / /
+        #=========|_|==============|___/=/_/_/_/
+        #:: Spring Boot ::        (v2.3.2.RELEASE)
+        #2023-03-12 16:52:14.718  INFO 20055 --- [           main] .c.s.SpringbootWeekendSessionApplication : Starting #SpringbootWeekendSessionApplication v0.0.1-SNAPSHOT on VJP-ADMINnoMacBook-Pro.local with PID 20055 (/Users/do.#tranquang/Documents/DoTQ/FE/gitlab/newrelic-demo/springboot-weekend-session/target/springboot-weekend-session-0.0.#1-SNAPSHOT.jar started by do.tranquang in /Users/do.tranquang/Documents/DoTQ/FE/gitlab/newrelic-demo/#springboot-weekend-session)
+        #2023-03-12 16:52:14.725  INFO 20055 --- [           main] .c.s.SpringbootWeekendSessionApplication : No active #profile set, falling back to default profiles: default
+        #2023-03-12 16:52:15.347  INFO 20055 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat #initialized with port(s): 33333 (http)
+        #2023-03-12 16:52:15.403  INFO 20055 --- [           main] o.apache.catalina.core.StandardService   : Starting #service [Tomcat]
+        ```
+        - port `33333` in `springboot-weekend-session/src/main/resources/application.properties`
+        - access `localhost:33333/getalldevopstools` (from `springboot-weekend-session/src/main/java/com/companyname/controller/AwsDevopsController.java`) on browser and F5 `APM & Services` on NRl dashboard
+        ![yt3_apm](screenshots/yt3_apm.png)
+        - click on `springboot-weekend-session` APM > click `Monitor>Distributed tracing`
+        ![yt3_monitor_distributedtracing](screenshots/yt3_monitor_distributedtracing.png)
+        - click `JVMs>VJP-ADMINnoMacBook-Pro.local`
+        ![yt3_prj1_jvm](screenshots/yt3_prj1_jvm.png)
+1. ### PRJ2: hellospringboot-cicdWithHelm
+    1. #### git clone PRJ1
+        ```shell
+        cd hellospringboot-cicdWithHelm
+        ```
+    1. #### create APM
+        - NRl dashboard: click `Add data`
+        - copy paste `newrelic.yml` DL file into `hellospringboot-cicdWithHelm/newrelic/newrelic.yml`
+    1. #### run
+        ```shell
+        hellospringboot-cicdWithHelm$ java -javaagent:/Users/do.tranquang/Documents/DoTQ/FE/gitlab/newrelic-demo/springboot-weekend-session/newrelic/newrelic.jar -jar target/hello-0.0.1-SNAPSHOT.jar
+        ```
+        - access `localhost:8080/hello` (from `hellospringboot-cicdWithHelm/src/main/java/com/spjenk/hello/HelloController.java`) on browser
+        ![yt3_prj2_api](screenshots/yt3_prj2_api.png)
+        - F5 `APM & Services` on NRl dashboard
+        ![yt3_prj2_run](screenshots/yt3_prj2_run.png)
+
+## yt4
+1. ### create acc
+    - create acc with 1 email
+    - access `https://one.newrelic.com/` > click `Apps` > `Build your own New Relic apps`
+    ![create_acc](screenshots/create_acc.png)
+    - install
+    ![install](screenshots/install.png)
+1. ### create app
