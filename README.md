@@ -67,7 +67,7 @@
     - NRl dashboard: click `+ Add Data` > search with KW `infra` > choose `New Relic infrastructure agent`
     ![infra_agent](screenshots/infra_agent.png)
     ```shell
-    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-AH0SCQSNV7QQQH1WC11DJ51S6X8 NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install
+    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && sudo NEW_RELIC_API_KEY=NRAK-XXX NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install
     #==> Successfully started `newrelic-infra-agent` (label: homebrew.mxcl.newrelic-infra-agent)
     #Running agent status check attempt...
     #Agent status check ok.
