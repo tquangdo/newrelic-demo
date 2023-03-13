@@ -107,7 +107,7 @@
             #[INFO] Finished at: 2023-03-12T16:20:54+09:00
             ```
         1. #### create APM
-            - NRl dashboard: click `APM & Services` > click `Add data` > search with KW `java` > choose `Java`
+            - NRl dashboard: click `APM & Services` > click `Add data` > search with KW `java` > choose `Maven`
             ![yt3_java](screenshots/yt3_java.png)
             ```shell
             springboot-weekend-session$ curl -O https://download.newrelic.com/newrelic/java-agent/newrelic-agent/current/newrelic-java.zip
