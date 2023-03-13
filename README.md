@@ -18,6 +18,13 @@
     ![create_acc](screenshots/create_acc.png)
     - install
     ![install](screenshots/install.png)
+    - (re)start/stop/uninstall infrastructure agent
+    ```shell
+    #(re)start/stop
+    brew services (re)start/stop newrelic-infra-agent
+    #uninstall
+    brew uninstall newrelic-infra-agent
+    ``` 
 1. ### create app
     ```shell
     # 1/
