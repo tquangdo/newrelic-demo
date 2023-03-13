@@ -180,7 +180,7 @@
     - on NRl dashboard click `Kubernetes` > `Add data` > choose `Kubernetes`
     ![yt4_addk8s](screenshots/yt4_addk8s.png)
     ```shell
-    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && NEW_RELIC_CLI_SKIP_CORE=1 NR_CLI_CLUSTERNAME=minikube_dotq NR_CLI_NAMESPACE=newrelic NR_CLI_PRIVILEGED=true NR_CLI_LOW_DATA_MODE=true NR_CLI_KSM=true NR_CLI_KUBE_EVENTS=true NR_CLI_PROMETHEUS_AGENT=true NR_CLI_PROMETHEUS_AGENT_LOW_DATA_MODE=true NR_CLI_CURATED=false NR_CLI_NEWRELIC_PIXIE=true NR_CLI_PIXIE_API_KEY=px-api-5215a0ea-39f5-43a5-a74c-99af3f01d3b2 NR_CLI_PIXIE=true NR_CLI_PIXIE_DEPLOY_KEY=px-dep-c2a46dec-e6dc-492d-b7e5-02a6cf13c495 NEW_RELIC_API_KEY=NRAK-XXX NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install -n kubernetes-open-source-integration
+    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && NEW_RELIC_CLI_SKIP_CORE=1 NR_CLI_CLUSTERNAME=minikube_dotq NR_CLI_NAMESPACE=newrelic NR_CLI_PRIVILEGED=true NR_CLI_LOW_DATA_MODE=true NR_CLI_KSM=true NR_CLI_KUBE_EVENTS=true NR_CLI_PROMETHEUS_AGENT=true NR_CLI_PROMETHEUS_AGENT_LOW_DATA_MODE=true NR_CLI_CURATED=false NR_CLI_NEWRELIC_PIXIE=true NR_CLI_PIXIE_API_KEY=px-api-XXX NR_CLI_PIXIE=true NR_CLI_PIXIE_DEPLOY_KEY=px-dep-XXX NEW_RELIC_API_KEY=NRAK-XXX NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install -n kubernetes-open-source-integration
     ```
     ![yt4_con](screenshots/yt4_con.png)
 1. ### view k8s dashboard
