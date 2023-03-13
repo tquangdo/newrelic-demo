@@ -9,7 +9,7 @@
 - [youtube1](https://www.youtube.com/watch?v=QX7wMf6wTSU)
 - [youtube2](https://www.youtube.com/watch?v=xDJMZyToIag)
 - [youtube3](https://www.youtube.com/watch?v=rVVvWHT_By4)
-- [youtube4](https://www.youtube.com/watch?v=xDJMZyToIag)
+- [youtube4](https://youtu.be/RKaEt26HjhI)
 
 ## yt1
 1. ### create acc
@@ -169,10 +169,19 @@
         ![yt3_prj3_run](screenshots/yt3_prj3_run.png)
 
 ## yt4
-1. ### create acc
-    - create acc with 1 email
-    - access `https://one.newrelic.com/` > click `Apps` > `Build your own New Relic apps`
-    ![create_acc](screenshots/create_acc.png)
-    - install
-    ![install](screenshots/install.png)
-1. ### create app
+1. ### connect k8s
+    - on NRl dashboard click `Kubernetes` > `Add data` > choose `Kubernetes`
+    ![yt4_addk8s](screenshots/yt4_addk8s.png)
+    ```shell
+    curl -Ls https://download.newrelic.com/install/newrelic-cli/scripts/install.sh | bash && NEW_RELIC_CLI_SKIP_CORE=1 NR_CLI_CLUSTERNAME=minikube_dotq NR_CLI_NAMESPACE=newrelic NR_CLI_PRIVILEGED=true NR_CLI_LOW_DATA_MODE=true NR_CLI_KSM=true NR_CLI_KUBE_EVENTS=true NR_CLI_PROMETHEUS_AGENT=true NR_CLI_PROMETHEUS_AGENT_LOW_DATA_MODE=true NR_CLI_CURATED=false NR_CLI_NEWRELIC_PIXIE=true NR_CLI_PIXIE_API_KEY=px-api-5215a0ea-39f5-43a5-a74c-99af3f01d3b2 NR_CLI_PIXIE=true NR_CLI_PIXIE_DEPLOY_KEY=px-dep-c2a46dec-e6dc-492d-b7e5-02a6cf13c495 NEW_RELIC_API_KEY=NRAK-XXX NEW_RELIC_ACCOUNT_ID=3847570 /usr/local/bin/newrelic install -n kubernetes-open-source-integration
+    ```
+    ![yt4_con](screenshots/yt4_con.png)
+1. ### view k8s dashboard
+    - on NRl dashboard click `Dashboard` & `Kubernetes`
+    ![yt4_view1](screenshots/yt4_view1.png)
+    - check pod/deployment/svc name are same with k8s CLI
+    ![yt4_view2](screenshots/yt4_view2.png)
+    - note: if `minikube delete` then on NRl dashboard click `Kubernetes` > click cluster `minikube_dotq` will show this warning
+    ![yt4_del](screenshots/yt4_del.png)
+
+
